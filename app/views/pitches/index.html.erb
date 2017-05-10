@@ -1,1 +1,14 @@
-pitches index
+<h1>List of Project Pitches</h1>
+<%= link_to("New Pitch", new_pitch_path) %>
+
+<% if @pitches %>
+  <% @pitches.each_with_index do |pitch, index| %>
+    <%= index +1 %>. <%= pitch.name %> <br>
+    <%= pitch.description %>
+    <hr>
+  <% end %>
+<% end %>
+<br>
+
+<%= button_to "Submit", { :controller => "pitches", :action => "index"} %>
+
