@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do 
-  Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph)
+  Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: 1)
 end

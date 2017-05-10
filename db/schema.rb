@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20170510211526) do
   enable_extension "plpgsql"
 
   create_table "pitches", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "student_id"
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.integer  "student_id",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
