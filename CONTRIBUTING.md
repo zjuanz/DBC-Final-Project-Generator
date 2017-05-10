@@ -5,7 +5,7 @@
 1. Create a branch named for the feature you are working on
 1. Add the upstream repositiory to your local project
 ```
-git remote add upstream https://github.com/aus-bumblebees-2017/DBC-Final-Project-Generator
+git remote add upstream https://github.com/aus-bumblebees-2017/DBC-Final-Project-Generator.git
 ```
 * Write Code
 * Commit your code and write a [good commit message](http://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message)
