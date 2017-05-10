@@ -8,7 +8,7 @@ class PitchesController < ApplicationController
   end
 
   def create
-    @pitch = Pitch.create(name: params["pitch"]["name"],description: params["pitch"]["description"],  student_id: params["pitch"]["student_id"])
+    @pitch = Pitch.create(pitch_params)
     if @pitch.save
       redirect_to pitches_path
     else
@@ -18,8 +18,8 @@ class PitchesController < ApplicationController
   end
 
 private
-  # def pitch_params
-  #   params.require(:pitch).permit(:name, :description)
-  # end
+  def pitch_params
+    params.require(:pitch).permit(:name, :description, :student_id)
+  end
 
 end
