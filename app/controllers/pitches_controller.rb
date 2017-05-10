@@ -1,12 +1,7 @@
-class PitchController < ApplicationController
-  # def index
-  # end
-
-  def new
+class PitchesController < ApplicationController
+  def index
+    @pitches = Pitch.all
   end
 
-  # def create
-  # end
 
-  
 end
