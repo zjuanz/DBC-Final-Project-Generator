@@ -3,7 +3,7 @@
     <div id="error_explanation">
       <ul>
         <% @cohort.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <li class="bg-warning text-black"><%= msg %></li>
         <% end %>
       </ul>
     </div>
