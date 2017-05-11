@@ -3,7 +3,8 @@ class Pitch < ApplicationRecord
   validate :description
   validate :student_id 
 
-  # belongs_to :student
-  # belongs_to :cohort, through :student
+  belongs_to :student
+  has_many :votes
+  
 
 end

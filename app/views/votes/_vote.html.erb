@@ -4,8 +4,8 @@
   <%= form_for :vote, url: vote_index_path do |f| %>    
   	<% @pitches.each do |pitch| %>													
     <p>
-      <%= link_to pitch.name, pitch_path(pitch.id) %>					
-    	<%= number_field(:pitches, pitch.name.to_sym, in: 0..@cohort.vote_limit, step: 1) %>
+      <%= link_to pitch.name, pitch_path(pitch.id) %>			
+    	<%= number_field(:pitches, pitch.name.to_sym, in: 0..3, step: 1) %>
     </p>
   	<% end %>
   	<p>
@@ -15,4 +15,5 @@
 <% else %>
   <% current_student.vote.each do |voted_pitch| %>
     <%= voted_pitch.pitch.name %>
+  <% end %>
 <% end %>
