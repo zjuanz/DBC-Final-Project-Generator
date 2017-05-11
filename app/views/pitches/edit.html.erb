@@ -7,8 +7,7 @@
   <% end %>
   <%= form_for :pitch, url: "/pitches/#{@pitch.id}", method: "patch"  do |f|%>
   
-  <!-- UPDATE WHEN USER IS MERGED -->
-  <%= f.hidden_field :student_id, :value => 1%>
+  <%= f.hidden_field :student_id, :value => current_student.id%>
 
     <div class="form-group col-lg-8 offset-md-2">
       <label for="name">Name: </label>

@@ -1,4 +1,4 @@
 class Vote < ApplicationRecord
-  # belongs_to :pitch
-  # belongs_to :student
+  belongs_to :pitch
+  belongs_to :student
 end

@@ -6,7 +6,7 @@ class PitchesController < ApplicationController
   def create
     @pitch = Pitch.create(pitch_params)
     if @pitch.save
-      redirect_to pitches_path
+      redirect_to "/students/index"
     else
       @errors = ["Error saving"]
       render 'new'
@@ -37,7 +37,8 @@ class PitchesController < ApplicationController
   def destroy 
     @pitch = Pitch.find(params[:id])
     @pitch.destroy
-    redirect_to pitches_path
+    #later this is home
+    redirect_to "/students/index"
   end
 
 private
