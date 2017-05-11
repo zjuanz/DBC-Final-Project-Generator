@@ -50,6 +50,11 @@ ActiveRecord::Schema.define(version: 20170511185358) do
     t.string  "name",        null: false
     t.string  "description", null: false
     t.integer "student_id",  null: false
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.integer  "student_id",  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "students", force: :cascade do |t|
@@ -72,4 +77,11 @@ ActiveRecord::Schema.define(version: 20170511185358) do
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer  "vote"
+    t.integer  "pitch_id"
+    t.integer  "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 end

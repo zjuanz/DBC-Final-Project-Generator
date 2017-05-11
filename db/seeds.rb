@@ -29,3 +29,4 @@ Cohort.create(name: "Fox", active: "true", pitch_limit: 2, pitch_start: "2017-05
   }
   Student.create(student)
 end
+
