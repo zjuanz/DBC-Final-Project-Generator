@@ -9,8 +9,8 @@
 <% end %>
 
 
-<% if @pitches %>
-  <% @pitches.each_with_index do |pitch, index| %>
+<% if @student_pitches %>
+  <% @student_pitches.each_with_index do |pitch, index| %>
     <%= link_to("#{ index + 1 }. #{pitch.name}", pitch_path(pitch.id))%> 
 
 <!-- Changes just in round 0 -->
