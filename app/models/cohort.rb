@@ -1,4 +1,5 @@
 class Cohort < ApplicationRecord
+  has_many :students
 
 	validates :name, presence: true
 	validates_uniqueness_of :name
