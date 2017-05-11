@@ -1,0 +1,13 @@
+<div>
+<h1><%= @cohort.name %></h1>
+<p>Active?: <%= @cohort.active %></p>
+<p>Pitch limit: <%= @cohort.pitch_limit %></p>
+<p>Pitch start: <%= @cohort.pitch_start %></p>
+<p>Vote limit: <%= @cohort.vote_limit %></p>
+<p>Vote start: <%= @cohort.vote_start %></p>
+<p>Vote end: <%= @cohort.vote_end %></p>
+<p><%= link_to "Edit", edit_cohort_path(@cohort) %></p>
+<p><%= link_to "Delete", cohort_path(@cohort),
+								method: :delete,
+								data: { confirm: 'Confirm to delete'} %></p>
+								
