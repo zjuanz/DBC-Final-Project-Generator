@@ -1,14 +1,18 @@
 <h1>Pitch voting</h1>
-
-
-<%= form_for :vote, url: vote_index_path do |f| %>    
-	<% @cohorts.each do |pitch| %>														<!-- change @cohorts to pitches -->
-  <p>
-    <%= link_to pitch.name, cohort_path(pitch.id) %>					<!-- change cohort_path to pitche_path -->
-  	<%= number_field(:pitches, pitch.name.to_sym, in: 0..(cohort.limit_4, step: 1) %>
-  </p>
-	<% end %>
-	  <p>
-    <%= f.submit %>
-  </p>
-	<% end %>
+<p>Instruction to vote</p>
+<% if current_student.votes.count < @cohort.vote_limit %>
+  <%= form_for :vote, url: vote_index_path do |f| %>    
+  	<% @pitches.each do |pitch| %>													
+    <p>
+      <%= link_to pitch.name, pitch_path(pitch.id) %>					
+    	<%= number_field(:pitches, pitch.name.to_sym, in: 0..@cohort.vote_limit, step: 1) %>
+    </p>
+  	<% end %>
+  	<p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+<% else %>
+  <% current_student.vote.each do |voted_pitch| %>
+    <%= voted_pitch.pitch.name %>
+<% end %>
