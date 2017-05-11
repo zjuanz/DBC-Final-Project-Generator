@@ -21,3 +21,7 @@ Welcome <%=  current_student.full_name %>,
 <% if current_student %>
   <%= render "./pitches/index.html.erb" %>
 <% end %>
+
+<% if current_student && current_student.cohort.stage_id >= 1 %>
+  <%= render "./votes/vote.html.erb" %>
+<% end %>

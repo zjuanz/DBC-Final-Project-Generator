@@ -4,6 +4,7 @@ class Pitch < ApplicationRecord
   validate :student_id 
 
   belongs_to :student
+  has_many :votes
   
 
 end
