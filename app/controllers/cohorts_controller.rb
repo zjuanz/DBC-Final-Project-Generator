@@ -28,7 +28,7 @@ class CohortsController < ApplicationController
 		find_cohort
 		if @cohort.update(cohort_params)
 			redirect_to @cohort
-		else 
+		else
 			render 'edit'
 		end
 	end
@@ -48,3 +48,5 @@ class CohortsController < ApplicationController
 			@cohort = Cohort.find(params[:id])
 		end
 end
+
+

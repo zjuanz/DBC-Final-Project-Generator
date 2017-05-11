@@ -19,7 +19,3 @@ describe CohortsController do
 		end
 	end
 end
-
-
-
-# RSpec.describe CohortsController, type: :controller do
