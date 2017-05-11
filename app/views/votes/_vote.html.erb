@@ -1,0 +1,14 @@
+<h1>Pitch voting</h1>
+
+
+<%= form_for :vote, url: vote_index_path do |f| %>    
+	<% @cohorts.each do |pitch| %>														<!-- change @cohorts to pitches -->
+  <p>
+    <%= link_to pitch.name, cohort_path(pitch.id) %>					<!-- change cohort_path to pitche_path -->
+  	<%= number_field(:pitches, pitch.name.to_sym, in: 0..(cohort.limit_4, step: 1) %>
+  </p>
+	<% end %>
+	  <p>
+    <%= f.submit %>
+  </p>
+	<% end %>
