@@ -10,21 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510211013) do
+
+ActiveRecord::Schema.define(version: 20170511142842) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cohorts", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "pitch_limit"
-    t.integer  "vote_limit"
-    t.date     "pitch_start"
-    t.date     "vote_start"
-    t.date     "vote_end"
-    t.boolean  "active"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+
+  create_table "admins", force: :cascade do |t|
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.integer  "cohort_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_students_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true, using: :btree
   end
 
 end
