@@ -54,6 +54,7 @@ group :development, :test do
   gem 'launchy'
   gem 'pry'
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+  gem 'rails-controller-testing'
 end
 
 gem 'simplecov', :require => false, :group => :test
