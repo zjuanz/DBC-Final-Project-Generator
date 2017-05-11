@@ -1,10 +1,9 @@
 <h1>List of Project Pitches</h1>
-<%= link_to("New Pitch", new_pitch_path) %>
+<%= link_to("New Pitch", new_pitch_path) %> <br>
 
 <% if @pitches %>
   <% @pitches.each_with_index do |pitch, index| %>
-    <%= index +1 %>. <%= pitch.name %> <br>
-    <%= pitch.description %>
+    <%= link_to("#{ index + 1 }. #{pitch.name}", pitch_path(pitch.id))%> <%=  link_to("edit", edit_pitch_path(pitch.id)) %> <%= link_to("delete", pitch_path(pitch.id) , method: "delete") %>  <br>
     <hr>
   <% end %>
 <% end %>

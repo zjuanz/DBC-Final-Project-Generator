@@ -1,9 +1,15 @@
-  <br>
+<%= link_to("pitches", pitches_path) %> <br>
+
+<h1 class="update-pitch h1-pitches">Update Pitch</h1>
+
   <% if @errors %>
     <%= @errors.first %>
   <% end %>
-  <%= form_for :pitch do |f|%>
+  <%= form_for :pitch, url: "/pitches/#{@pitch.id}", method: "patch"  do |f|%>
+  
+  <!-- UPDATE WHEN USER IS MERGED -->
   <%= f.hidden_field :student_id, :value => 1%>
+
     <div class="form-group col-lg-8 offset-md-2">
       <label for="name">Name: </label>
       <%= f.text_field :name, :class => "form-control "%><br>
@@ -17,5 +23,5 @@
     </div>
 <% end %>
 
-
-
+<!-- THIS IS MD PREVIEW -->
+<div class="html"></div>

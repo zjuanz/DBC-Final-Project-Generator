@@ -12,22 +12,36 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
 $(document).ready(function(){
 
-  $(".form-text-in").on("keyup", function(e){
-    e.preventDefault();
-    var $input = $(this)[0].value;
-    console.log("fire");
-    console.log($input[0].value);
+// PITCH show view
+    var $show = $.trim($(".show-text-in").text());
+    console.log($show)
+    var converter = new showdown.Converter(),
+    show_text      = $show
+    show_html     = converter.makeHtml(show_text);
+    $(".html").html(show_html);
+
+//PITCH update view
+   var $input = $(".form-text-in")[0].value;
     var converter = new showdown.Converter(),
     text      = $input
     html      = converter.makeHtml(text);
-    console.log(html)
     $(".html").html(html);
-  })
+  
+//PITCH create view
+  $(".form-text-in").on( "keyup", function(e){
+    e.preventDefault();
+    var $input = $(this)[0].value;
+    var converter = new showdown.Converter(),
+    text      = $input
+    html      = converter.makeHtml(text);
+    console.log("form text ")
+    $(".html").html(html);
+  }) //end of form-text-in function
 
-});
+}); //end of document
 
 
