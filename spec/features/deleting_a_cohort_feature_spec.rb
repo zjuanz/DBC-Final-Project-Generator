@@ -8,7 +8,7 @@ feature "deleting a cohort" do
 
     within(".cohort") do
       expect(page).to have_content cohort.name
-      click_link("Delete")
+      click_button("Delete")
 
       # NOT SURE HOW TO TEST JS ALERTS
       # page.evaluate_script('window.confirm = function() { return true; }')
