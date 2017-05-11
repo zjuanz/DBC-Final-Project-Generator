@@ -1,0 +1,11 @@
+<div class="cohorts mt-3">
+	<%= button_to'New Cohort', new_cohort_path, method: :get %>
+	<% @cohorts.each do |cohort| %>
+		<% if cohort.active %>
+			<p><%= link_to cohort.name, cohort_path(cohort.id) %></p>
+		<% end %>
+	<% end %>
+</div>
+
+
+
