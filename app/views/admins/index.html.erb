@@ -1,5 +1,8 @@
+<h1>Welcome, <%= current_admin.full_name %></h1>
 <div class="cohorts">
   <%= button_to'New Cohort', new_cohort_path, method: :get %>
+  <br>
+  <%= button_to 'New Student', new_student_path, method: :get %>
   <br>
   <strong>Active Cohorts</strong>
   <% @cohorts.each do |cohort| %>
@@ -10,7 +13,6 @@
 </div>
 
 <div class="students">
-  <p>New Student Link - soon</p>
   <% @cohorts.each do |cohort| %>
     <% if cohort.active %>
       <strong><%= cohort.name %></strong>

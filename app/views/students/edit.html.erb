@@ -1,0 +1,39 @@
+<h2 class="bg-faded">Update Student</h2>
+<hr>
+
+<%= form_for(@student, as: :student, url: admins_students_path(@student)) do |f| %>
+  <div class="d-flex flex-row">
+  <div class="field p-2">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class="field p-2">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.email_field :email%>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cohort %><br>
+    <%= f.select(:cohort_id) do %>
+      <% Cohort.all.each do |c| %>
+        <%= content_tag(:option, c.name, value: c.id) %>
+      <% end %>
+    <% end %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
