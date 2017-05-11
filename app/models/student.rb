@@ -1,5 +1,6 @@
 class Student < ApplicationRecord
   belongs_to :cohort
+  has_many :pitches
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

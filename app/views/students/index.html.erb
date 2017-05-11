@@ -1,6 +1,13 @@
-
+<!-- 
 <ul>
 <% Student.all.each do |s| %>
   <li><%= s.full_name %></li>
 <% end %>
-</ul>
+</ul> -->
+Welcome <%=  current_student.full_name %>,
+
+Due date: <%= current_student.cohort.pitch_start %>
+
+<% if current_student %>
+<%= render "./pitches/index.html.erb" %>
+<% end %>
