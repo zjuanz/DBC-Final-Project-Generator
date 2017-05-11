@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+
+  $(".form-text-in").on("keyup", function(e){
+    e.preventDefault();
+    var $input = $(this)[0].value;
+    console.log("fire");
+    console.log($input[0].value);
+    var converter = new showdown.Converter(),
+    text      = $input
+    html      = converter.makeHtml(text);
+    console.log(html)
+    $(".html").html(html);
+  })
+
+});
+
+
