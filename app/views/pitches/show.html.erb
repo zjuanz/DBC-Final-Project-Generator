@@ -1,0 +1,9 @@
+<%= link_to("pitches", pitches_path) %> <br>
+<%= link_to("edit pitch", edit_pitch_path(@pitch.id)) %> <br>
+Pitch name: <%= @pitch.name %>
+<div class="show-text-in hidden">
+  <%= @pitch.description %> 
+</div>
+
+<div class="html"> </div>
+

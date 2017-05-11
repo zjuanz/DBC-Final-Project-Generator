@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get '/students/:id', to: 'students#show', as: 'student'
   get '/admins', to: 'admins#index'
 
+  resources :pitches
+
   get '/' => "application#login"
 end
