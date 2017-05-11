@@ -1,15 +1,17 @@
-<h2>Create Student</h2>
+<h2 class="bg-faded">Create Student</h2>
+<hr>
 
 <%= form_for(@student) do |f| %>
-
-  <div class="field">
+  <div class="d-flex flex-row"
+  <div class="field p-2">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name, autofocus: true %>
   </div>
 
-    <div class="field">
+  <div class="field p-2">
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
+  </div>
   </div>
 
   <div class="field">
