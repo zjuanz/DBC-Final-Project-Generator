@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   get '/students', to: 'students#index'
   get '/students/:id', to: 'students#show', as: 'student'
-  get '/admins', to: 'admins#index'
+
+  resources :admins
 
   get '/admins/students/new', to: 'admins#student_new', as: 'new_student'
   post '/admins/students/new', to: 'admins#student_create', as:'create_student'
