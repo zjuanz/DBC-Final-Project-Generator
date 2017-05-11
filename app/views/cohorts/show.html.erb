@@ -1,14 +1,31 @@
 <div class="cohort">
-	<h1><%= @cohort.name %></h1>
-	<p>Active?: <%= @cohort.active %></p>
-	<p>Pitch limit: <%= @cohort.pitch_limit %></p>
-	<p>Pitch start: <%= @cohort.pitch_start %></p>
-	<p>Vote limit: <%= @cohort.vote_limit %></p>
-	<p>Vote start: <%= @cohort.vote_start %></p>
-	<p>Vote end: <%= @cohort.vote_end %></p>
-	<p><%= link_to "Edit", edit_cohort_path(@cohort) %></p>
-	<p><%= link_to "Delete", cohort_path(@cohort),
-									method: :delete,
-									data: { confirm: 'Confirm to delete'} %></p>
+	<h1 class="bg-faded"><%= @cohort.name %></h1>
+	<hr>
+	<div class="d-flex flex-row">
+	<% if @cohort.active %>
+		<p class="p-2 bg-success text-bl">Cohort is set to active!</p>
+	<% else %>
+		<p class="p-2 bg-warning text-black">Cohort is set to inactive!</p>
+	<% end %>
+	</div>
+	<div class="d-flex flex-row">
+	<p class="p-2">Pitch start: <%= @cohort.pitch_start %></p>
+	<p class="p-2">Pitch limit: <%= @cohort.pitch_limit %></p>
+	</div>
+	<div class="d-flex flex-row">
+	<p class="p-2">Vote start: <%= @cohort.vote_start %></p>
+	<p class="p-2">Vote limit: <%= @cohort.vote_limit %></p>
+	</div>
+	<div class="d-flex flex-row">
+	<p class="p-2">Vote end: <%= @cohort.vote_end %></p>
+	</div>
+	<hr>
+	<div class="d-flex flex-row bg-faded">
+	<p class="p-2"><%= button_to "Edit", edit_cohort_path(@cohort), method: "get" %></p>
+	<p class="p-2"><%= button_to "Delete", cohort_path(@cohort),
+		method: :delete,
+		data: { confirm: 'Confirm to delete'} %></p>
+	</div>
+
 </div>
-								
+
