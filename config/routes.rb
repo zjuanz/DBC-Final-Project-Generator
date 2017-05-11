@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   get 'students/index'
 
   resources :cohorts
@@ -6,7 +7,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/students', to: 'students#index'
-  get '/students/:id', to: 'students#show'
+  get '/students/:id', to: 'students#show', as: 'student'
+  get '/admins', to: 'admins#index'
 
   get '/' => "application#login"
 end
