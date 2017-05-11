@@ -35,9 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-#Use bootstrap 
+#Use bootstrap
 gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'jquery-rails'
+# gem 'jquery-rails'
 
 #Devise for users
 gem 'devise', git: 'https://github.com/gogovan/devise.git', branch: 'rails-5.1'
@@ -53,6 +53,7 @@ group :development, :test do
   gem 'capybara', "~> 2.5"
   gem 'launchy'
   gem 'pry'
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
   gem 'rails-controller-testing'
 end
 
