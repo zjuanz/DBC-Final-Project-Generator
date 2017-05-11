@@ -1,0 +1,10 @@
+class Cohort < ApplicationRecord
+
+	validates :name, presence: true
+	validates_uniqueness_of :name
+	validates :pitch_limit, presence: true
+	validates :vote_limit, presence: true
+	validates :pitch_start, presence: true
+	validates :vote_start, presence: true
+	validates :vote_end, presence: true
+end
