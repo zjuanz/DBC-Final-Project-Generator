@@ -18,7 +18,7 @@
       <strong><%= cohort.name %></strong>
       <ul>
       <% cohort.students.each do |student| %>
-        <li><%= student.full_name %></li>
+        <li><%= link_to student.full_name, edit_student_path(student) %></li>
       <% end %>
       </ul>
     <% end %>
@@ -26,3 +26,5 @@
 </div>
 <br>
 <%= button_to 'New Admin', new_admin_path, method: :get %>
+<%= button_to 'List Admins', admin_path(1), method: :get %>
+

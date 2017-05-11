@@ -1,7 +1,7 @@
 <h2 class="bg-faded">Update Student</h2>
 <hr>
 
-<%= form_for(@student, as: :student, url: admins_students_path(@student)) do |f| %>
+<%= form_for(@student, as: :student, url: update_student_path) do |f| %>
   <div class="d-flex flex-row">
   <div class="field p-2">
     <%= f.label :first_name %><br>

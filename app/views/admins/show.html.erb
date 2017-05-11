@@ -1,0 +1,7 @@
+<h1>Admins</h1>
+
+<ul>
+<% @admins.each do |admin| %>
+<li><%= link_to admin.full_name, edit_admin_path(admin) %></li>
+<% end %>
+</ul>
