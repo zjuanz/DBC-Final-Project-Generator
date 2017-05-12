@@ -15,6 +15,12 @@ end
 
 Cohort.destroy_all
 Student.destroy_all
+Admin.create(
+  :first_name => "Uber",
+  :last_name => "Admin",
+  :email => "admin@hello.com",
+  :password => "password"
+  )
 
 Cohort.create(name: "Bumblebee", active: "true", pitch_limit: 2, pitch_start: "2017-05-10", vote_start: "2017-05-11", vote_limit: 3, vote_end: "2017-05-12", stage_id:0)
 
