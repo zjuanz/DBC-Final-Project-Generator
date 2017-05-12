@@ -6,9 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 Pitch.destroy_all
 
-10.times do 
+10.times do
   Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: 1)
 end
 
@@ -32,12 +33,12 @@ Cohort.create(name: "Fox", active: "true", pitch_limit: 2, pitch_start: "2017-05
   Student.create(student)
 end
 
-10.times do 
+10.times do
   Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: rand(1..10), round_id: 0)
 end
 
 
-4.times do 
+4.times do
   Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: rand(1..10), round_id: 1)
 end
 

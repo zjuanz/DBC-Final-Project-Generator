@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 20170512154220) do
   end
 
   create_table "pitches", force: :cascade do |t|
+    t.string  "name",        null: false
+    t.string  "description", null: false
+    t.integer "student_id",  null: false
     t.string   "name",        null: false
     t.string   "description", null: false
     t.integer  "student_id",  null: false
@@ -84,5 +87,4 @@ ActiveRecord::Schema.define(version: 20170512154220) do
     t.datetime "updated_at", null: false
     t.integer  "round_id"
   end
-
 end
