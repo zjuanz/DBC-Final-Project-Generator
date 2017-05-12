@@ -38,7 +38,7 @@ end
 end
 
 
-4.times do
+20.times do
   Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: rand(1..10), round_id: 1)
 end
 
