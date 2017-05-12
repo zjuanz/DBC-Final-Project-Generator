@@ -1,30 +1,37 @@
-<h1>Welcome, <%= current_admin.full_name %></h1>
+<h1 class="bg-faded">Welcome, <%= current_admin.full_name %></h1>
+<hr>
 <div class="cohorts">
-  <%= button_to'New Cohort', new_cohort_path, method: :get %>
-  <br>
-  <%= button_to 'New Student', new_student_path, method: :get %>
-  <br>
-  <strong>Active Cohorts</strong>
+<div class="btn-group">
+  <%= button_to 'New Cohort', new_cohort_path, method: :get, form_class: 'btn btn-secondary' %>
+  <%= button_to 'New Student', new_student_path, method: :get, form_class: 'btn btn-secondary' %>
+  <%= button_to 'New Admin', new_admin_path, method: :get, form_class: 'btn btn-secondary' %>
+  <%= button_to 'List Admins', admin_path(1), method: :get, form_class: 'btn btn-secondary' %>
+</div>
+  <hr>
+  <strong class="bg-faded">Active Cohorts</strong>
+  <ul class="list-group">
   <% @cohorts.each do |cohort| %>
     <% if cohort.active %>
-      <p><%= link_to cohort.name, cohort_path(cohort.id) %> - Stage <%= cohort.stage_id %></p>
+      <li class="list-group-item bg-faded"><%= link_to cohort.name, cohort_path(cohort.id) %></li>
     <% end %>
   <% end %>
+  </ul>
 </div>
 
 <div class="students">
   <% @cohorts.each do |cohort| %>
     <% if cohort.active %>
-      <strong><%= cohort.name %></strong>
-      <ul>
+      <hr>
+      <strong><%= cohort.name %> Students:</strong>
+      <hr>
+      <ul class="list-group">
       <% cohort.students.each do |student| %>
-        <li><%= link_to student.full_name, edit_student_path(student) %></li>
+        <li class="list-group-item"><%= link_to student.full_name, edit_student_path(student) %></li>
       <% end %>
       </ul>
     <% end %>
   <% end %>
 </div>
 <br>
-<%= button_to 'New Admin', new_admin_path, method: :get %>
-<%= button_to 'List Admins', admin_path(1), method: :get %>
+
 

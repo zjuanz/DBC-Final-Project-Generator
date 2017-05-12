@@ -1,20 +1,23 @@
 <h1>Pitch voting</h1>
 <p>Instruction to vote</p>
-<% if current_student.votes.count < @cohort.vote_limit %>
-  <%= form_for :votes, url: vote_index_path do |f| %>    
-    
-     <%@cohort.vote_limit.times do |i|%>   
-      <label for="name">Choice <%= i +1%>: </label>
+<% if current_student.votes.count != nil  && @cohort%>
+  <% if current_student.votes.count < @cohort.vote_limit %>
+    <%= form_for :votes, url: vote_index_path do |f| %>    
+      
+       <%@cohort.vote_limit.times do |i|%>   
+        <label for="name">Choice <%= i +1%>: </label>
 
-      <%= f.select :"#{i+1}", @current_pitches.collect{|c|[c.name, c.id]}, {include_blank:true}%>
+        <%= f.select :"#{i+1}", @current_pitches.collect{|c|[c.name, c.id]}, {include_blank:true}%>
+      <% end %>
+    
+    	<p>
+        <%= f.submit %>
+      </p>
     <% end %>
-  
-  	<p>
-      <%= f.submit %>
-    </p>
-  <% end %>
-<% else %>
-  <% current_student.vote.each do |voted_pitch| %>
-    <%= voted_pitch.pitch.name %>
+  <% else %>
+    <% current_student.votes.each do |voted_pitch| %>
+      <%= voted_pitch.pitch.name %>
+    <% end %>
   <% end %>
 <% end %>
+
