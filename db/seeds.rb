@@ -18,6 +18,7 @@ end
 
 Cohort.destroy_all
 Student.destroy_all
+
 Admin.create(
   :first_name => "Uber",
   :last_name => "Admin",
