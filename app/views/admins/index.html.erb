@@ -7,7 +7,7 @@
   <strong>Active Cohorts</strong>
   <% @cohorts.each do |cohort| %>
     <% if cohort.active %>
-      <p><%= link_to cohort.name, cohort_path(cohort.id) %> - Stage <%git= cohort.stage_id %></p>
+      <p><%= link_to cohort.name, cohort_path(cohort.id) %> - Stage <%= cohort.stage_id %></p>
     <% end %>
   <% end %>
 </div>
