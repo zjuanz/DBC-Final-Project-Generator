@@ -1,4 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_action :authenticate_admin!, only: [:new, :create]
+  skip_before_action :require_no_authentication,
+
+
   def update
     new_params = params.require(:student).permit(:first_name, :last_name, :email, :current_password, :password, :password_confirmation, :cohort_id)
     change_password = true
@@ -25,4 +29,10 @@ class RegistrationsController < Devise::RegistrationsController
     else
       render "edit"
     end
+
+  private
+
+  def sign_up(resource_name, resource)
+    true
+  end
   end
