@@ -1,13 +1,14 @@
 <h1>Pitch voting</h1>
 <p>Instruction to vote</p>
 <% if current_student.votes.count < @cohort.vote_limit %>
-  <%= form_for :vote, url: vote_index_path do |f| %>    
-  	<% @pitches.each do |pitch| %>													
-    <p>
-      <%= link_to pitch.name, pitch_path(pitch.id) %>			
-    	<%= number_field(:pitches, pitch.name.to_sym, in: 0..3, step: 1) %>
-    </p>
-  	<% end %>
+  <%= form_for :votes, url: vote_index_path do |f| %>    
+    
+     <%@cohort.vote_limit.times do |i|%>   
+      <label for="name">Choice <%= i +1%>: </label>
+
+      <%= f.select :"#{i+1}", @current_pitches.collect{|c|[c.name, c.id]}, {include_blank:true}%>
+    <% end %>
+  
   	<p>
       <%= f.submit %>
     </p>
