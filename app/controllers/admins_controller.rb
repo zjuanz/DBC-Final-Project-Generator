@@ -72,7 +72,6 @@ class AdminsController < ApplicationController
     end
   end
 
-
   def destory
   end
 
