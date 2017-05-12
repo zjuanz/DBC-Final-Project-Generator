@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
     @cohort = current_student.cohort
     @student = Student.find(current_student.id)
     @current_pitches = current_student.cohort.pitches
-    # @pitches = Pitch.all
+    @student_pitches = current_student.pitches
   end
 
   def show
