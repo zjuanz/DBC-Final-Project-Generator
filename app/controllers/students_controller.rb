@@ -2,8 +2,8 @@ class StudentsController < ApplicationController
   def index
     @cohort = current_student.cohort
     @student = Student.find(current_student.id)
-    @student_pitches = current_student.pitches
-    @pitches = Pitch.all
+    @current_pitches = current_student.cohort.pitches
+    # @pitches = Pitch.all
   end
 
   def show

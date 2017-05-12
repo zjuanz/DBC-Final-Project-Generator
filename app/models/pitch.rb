@@ -3,8 +3,9 @@ class Pitch < ApplicationRecord
   validate :description
   validate :student_id
 
-  belongs_to :student
-  has_many :votes
 
+  belongs_to :student
+  belongs_to :cohort, foreign_key: :student_id
+  has_many :votes
 
 end
