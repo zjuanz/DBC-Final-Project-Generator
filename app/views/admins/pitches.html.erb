@@ -1,13 +1,18 @@
 <% @cohorts.each do |cohort| %>
 <h1><%= cohort.name %></h1>
-<p>Stage: <%= cohort.stage_id %></p>
-<p>Pitch Due: <%= cohort.pitch_start %></p>
-<p>Voting Due: <%= cohort.vote_end %></p>
-<h3>All Pitches</h3>
-<ol>
-<% cohort.pitches.each do |pitch| %>
-<li><%= link_to pitch.name, pitch_path(pitch), target: :_blank %> - <%= pitch.votes.count %></li>
-<% end %>
-</ol>
+  <%= form_tag("/rounds/new", method: "get") do %>
+  <p>Stage: <%= cohort.stage_id %></p>
+  <p>Pitch Due: <%= cohort.pitch_start %></p>
+  <p>Voting Due: <%= cohort.vote_end %></p>
+  <h3>All Pitches</h3>
+  <ol>
+    <% cohort.pitches.each do |pitch| %>
+      <li><%= link_to pitch.name, pitch_path(pitch), target: :_blank %> - <%= pitch.votes.count %> - <%= check_box_tag(pitch.id) %></li>
+    <% end %>
+  </ol>
+  <%= select_tag(:round_status, options_for_select([['Next Round', 1], ['Create Teams', 2]])) %>
+  <%= hidden_field_tag(:cohort_id, cohort.id) %>
+  <%= submit_tag('Submit') %>
+  <% end %>
 <hr>
 <% end %>
