@@ -72,6 +72,10 @@ class AdminsController < ApplicationController
     end
   end
 
+  def pitches
+    @cohorts = Cohort.active
+  end
+
   def destory
   end
 
