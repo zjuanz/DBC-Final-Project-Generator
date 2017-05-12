@@ -4,6 +4,11 @@ class RoundsController < ApplicationController
   end
 
   def create
-    if round
+    @cohort = Cohort.find(params[:cohort_id])
+    if params[:round_status] == 1
+      # NEW ROUND
+    else
+      # NEW TEAMS
+    end
   end
 end
