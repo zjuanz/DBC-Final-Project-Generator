@@ -43,7 +43,7 @@ class CohortsController < ApplicationController
 
 	private
 		def cohort_params
-			params.require(:cohort).permit(:name, :active, :pitch_limit, :vote_limit, :pitch_start, :vote_start, :vote_end)
+			params.require(:cohort).permit(:name, :active, :pitch_limit, :vote_limit, :pitch_start, :vote_start, :vote_end, :stage_id)
 		end
 
 		def find_cohort
