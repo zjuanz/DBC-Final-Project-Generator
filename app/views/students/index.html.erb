@@ -1,14 +1,12 @@
-<% if @errors  %>
-  <% @errors.each do |e| %>
-    <%= e %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @student.errors.full_messages.each do |msg| %>
+          <li class="bg-warning text-black"><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
-<% end %>
-<!-- 
-<ul>
-<% Student.all.each do |s| %>
-  <li><%= s.full_name %></li>
-<% end %> 
-</ul> -->
 <br>
 Welcome <%=  current_student.full_name %>,
 <br>
