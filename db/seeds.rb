@@ -10,11 +10,15 @@
 Pitch.destroy_all
 
 10.times do
-  Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: 1)
+  Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: 1, round_id: 1)
+end
+10.times do
+  Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: 2, round_id: 1)
 end
 
 Cohort.destroy_all
 Student.destroy_all
+
 Admin.create(
   :first_name => "Uber",
   :last_name => "Admin",
@@ -40,11 +44,11 @@ Cohort.create(name: "Fox", active: "true", pitch_limit: 2, pitch_start: "2017-05
 end
 
 10.times do
-  Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: rand(1..10), round_id: 0)
+  Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: 2, round_id: 0)
 end
 
 
-4.times do
+20.times do
   Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: rand(1..10), round_id: 1)
 end
 
