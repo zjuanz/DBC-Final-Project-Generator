@@ -5,11 +5,15 @@ class RoundsController < ApplicationController
 
   def create
     @cohort = Cohort.find(params[:cohort_id])
-    if params[:round_status] == 1
+    binding.pry
+    if !params[:pitch_ids].nil?
       new_round(@cohort, params[:pitch_ids])
-      redirect_to 
-    else
-      # NEW TEAMS
+
+      if params[:round_status] == '1'
+        redirect_to rounds_path
+      elsif params[:round_status] == '2'
+        redirect_to new_team_path, cohort_id: @cohort_id
+      end
     end
   end
 
@@ -22,6 +26,7 @@ class RoundsController < ApplicationController
       pitch.round_id += 1
       pitch.save
     end
-    @cohort.stage_id += 1
+    cohort.stage_id += 1
+    cohort.save
   end
 end

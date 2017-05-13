@@ -16,13 +16,14 @@
     </thead>
     <tbody>
     <% counter = 1 %>
-    <% cohort.pitches.each do |pitch| %>
+    <% cohort.current_pitches.each do |pitch| %>
     <tr>
       <td><%= counter %></td>
       <td><%= link_to pitch.name, pitch_path(pitch), target: :_blank %></td>
-      <td><%= pitch.votes.count %></td>
+      <td><%= pitch.round_id %></td>
       <td><%= check_box_tag('pitch_ids[]', pitch.id) %></td>
     </tr>
+    <% counter += 1 %>
     <% end %>
     </tbody>
   </table>

@@ -16,4 +16,10 @@ class Cohort < ApplicationRecord
       c.active == true
     end
   end
+
+  def current_pitches
+    self.pitches.select do |p|
+      p.round_id == self.stage_id
+    end
+  end
 end

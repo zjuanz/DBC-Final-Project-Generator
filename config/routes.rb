@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :rounds
   resources :admins
   resources :pitches
+  resources :teams
 
   get '/' => 'admins#index'
 end
