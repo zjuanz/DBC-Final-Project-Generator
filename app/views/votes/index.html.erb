@@ -1,0 +1,7 @@
+<h1>Your voted pitches</h1>
+<% current_student.votes.each do |vote| %>
+  <p><%= link_to("#{vote.pitch.name}", pitch_path(vote.pitch.id))%><p> 
+<% end %>
+<br>
+<p>We are building the Teams...............!</p>
+<p>Wait for news on Slack.</p>

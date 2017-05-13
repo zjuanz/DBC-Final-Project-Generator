@@ -2,7 +2,7 @@
 <p>Instruction to vote</p>
 <% if current_student.votes.count != nil  && @cohort%>
   <% if current_student.votes.count < @cohort.vote_limit %>
-    <%= form_for :votes, url: vote_index_path do |f| %>    
+    <%= form_for :votes, url: votes_path do |f| %>    
       
        <%@cohort.vote_limit.times do |i|%>   
         <label for="name">Choice <%= i +1%>: </label>
