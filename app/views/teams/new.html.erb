@@ -1,1 +1,19 @@
-<%= flash %>
+<h1>Form Teams</h1>
+
+<table class="table">
+<thead>
+<tr>
+<th>Student</th>
+<% @cohort.current_pitches.each do |pitch| %>
+  <th><%= pitch.name %></th>
+<% end %>
+</tr>
+</thead>
+<tbody>
+<% @cohort.students.each do |student| %>
+<tr>
+  <td><%= student.full_name %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
