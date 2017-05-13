@@ -19,19 +19,23 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="/admins">Admin Home</a>
+            </li>
+          <li class="nav-item active">
             <a class="nav-link" href="/students">Student Home</a>
           </li>
+          <!--
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>
+           -->
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
+      <!--   <form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        </form> -->
          <ul class="navbar-nav">
           <li class="nav-item active">
             <% if current_admin %>
@@ -52,17 +56,18 @@
     <%= yield %>
      </div>
 
-    <footer class="footer">
+     <footer class="footer">
       <div class="container">
         <div class="text-muted d-flex justify-content-end">
         <div class="mr-auto p-2">
-          <a href="https://github.com/aus-bumblebees-2017/DBC-Final-Project-Generator"><small>GitHub |</small></a>
-          <a href="https://github.com/aus-bumblebees-2017/DBC-Final-Project-Generator/blob/master/LICENSE"><small>License</small></a>
+            <a class="p-2" href="https://github.com/aus-bumblebees-2017/DBC-Final-Project-Generator"><small>GitHub |</small></a>
+            <a class="p-2" href="https://github.com/aus-bumblebees-2017/DBC-Final-Project-Generator/blob/master/LICENSE"><small>License</small></a>
           </div>
-          <a class="p-2" href="https://www.github.com/bmartin2015"><small>Ben Martin |</small></a>
-          <a class="p-2" href="https://github.com/zjuanz"><small>Juan Zalles |</small></a>
-          <a class="p-2" href="https://github.com/matthiashaefeli"><small>Matthias Haefeli |</small></a>
-          <a class="p-2" href="https://github.com/litola"><small>Rafael Lara</small></a>
+          <img width="30px"  height="30px" class="p-0 mt-4" src="f4-small.jpg">
+          <a class="p-2" href="https://www.github.com/bmartin2015"><small>Ben  |</small></a>
+          <a class="p-2" href="https://github.com/zjuanz"><small>Juan </small></a>
+          <a class="p-2" href="https://github.com/matthiashaefeli"><small>Matthias |</small></a>
+          <a class="p-2" href="https://github.com/litola"><small>Rafael</small></a>
         </div>
       </div>
     </footer>
