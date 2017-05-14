@@ -1,4 +1,7 @@
 @import 'bootstrap';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -73,4 +76,32 @@ code {
 
 .hidden{
   display: none;
+}
+
+/* HOMEPAGE*/
+.home-container{
+  margin-top:4%;
+}
+.home-header p {
+  margin-top:2%;
+  margin-bottom: 2%;
+}
+
+.users-container {
+  background-color: #ededed;
+}
+.admin-container {
+  /*background-color: red;*/
+  margin-top: 2%;
+  height:300px ;  
+  margin-right: 10px;
+  border-right: 1px solid gray;
+  padding-right: 5%;
+}
+
+.student-container{
+  /*background-color: red;*/
+  height:300px ; 
+  margin-top: 2%;
+   padding-left: 5%;
 }
