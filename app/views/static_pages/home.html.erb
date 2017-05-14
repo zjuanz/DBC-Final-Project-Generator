@@ -1,0 +1,40 @@
+<div class="home-container">
+  <div class="row home-header justify-content-center">
+    <h1> Welcome to Final Project Selector</h1> <br>
+    <p class="col-md-8">The <strong>FPSelector</strong> project was inspired by the urge of DBC Staff to have a way to propose and select the best pitches, for students to vote and get the most adecuate project to work in as a final project. Based on the students preferences and pitches suggested.</p>
+  </div>
+  <div class="row justify-content-center users-container">
+    <div class="admin-container col-md-5">
+      <div class="row justify-content-center">
+        <h2><i class="fa fa-user-circle" aria-hidden="true"></i> Admin User</h2>
+      </div>
+      <br>
+      <p>As an <i>Admin user</i> you will be able to create more users selecting its role as an admin or student. You have the ability to create cohorts and control the flow starting with each student submitting pitches all the way to create the final teams for the projects. </p>
+      <br>
+      
+      <% if !current_admin && !current_student %>
+        <div class="row justify-content-center">
+          <%=link_to("Sign in", new_admin_session_path , class: "btn btn-primary") %>
+
+        </div>
+      <% end %>
+      
+
+    </div>   
+    
+    <div class="student-container col-md-5">
+      <div class="row justify-content-center">
+        <h2><i class="fa fa-graduation-cap" aria-hidden="true"></i> Student User</h2>
+      </div>
+      <br>
+      <p>As a <i>Student</i> you will be able to submit pitches, and vote for your best options between your cohort. So you can be in the best team based on your preferences.</p>
+       <br> <br>
+      <% if !current_admin && !current_student %>
+        <div class="row justify-content-center">
+          <%=link_to("Sign in", new_student_session_path , class: "btn btn-success") %>
+        </div>
+      <% end %>
+    </div>
+
+  </div> <!-- end of admin and student row -->
+</div>  <!-- end of home div -->
