@@ -1,26 +1,30 @@
-<%= link_to("pitches", pitches_path) %> <br>
-
 <h1 class="update-pitch h1-pitches">Update Pitch</h1>
 
   <% if @errors %>
     <%= @errors.first %>
   <% end %>
-  <%= form_for :pitch, url: "/pitches/#{@pitch.id}", method: "patch"  do |f|%>
-  
-  <%= f.hidden_field :student_id, :value => current_student.id%>
+  <div class="row">
+  <div class="new-pitch col-lg-6">
+    <%= form_for :pitch, url: "/pitches/#{@pitch.id}", method: "patch"  do |f|%>
+    
+    <%= f.hidden_field :student_id, :value => current_student.id%>
 
-    <div class="form-group col-lg-8 offset-md-2">
-      <label for="name">Name: </label>
-      <%= f.text_field :name, :class => "form-control "%><br>
-    </div>
-    <div class="form-group col-lg-8 offset-md-2">
-      <label for="description">Description (Accepts md style)</label><br>
-      <%= f.text_area :description, size: 20, :class => "form-control form-text-in" %><br>
-    </div>
-    <div class="form-group col-lg-8 offset-md-5">
-      <%= f.submit :class => "btn btn-primary" %>
-    </div>
-<% end %>
-
+      <div class="form-group col-lg-12">
+        <label for="name">Name: </label>
+        <%= f.text_field :name, :class => "form-control "%><br>
+      </div>
+      <div class="form-group col-lg-12">
+        <label for="description">Description (Accepts md style)</label><br>
+        <%= f.text_area :description, rows:12, :class => "form-control form-text-in" %><br>
+      </div>
+      <div class="form-group col-lg-8 offset-md-5">
+        <%= f.submit :class => "btn btn-primary" %>
+      </div>
+  <% end %>
+</div>
 <!-- THIS IS MD PREVIEW -->
-<div class="html"></div>
+<div class="md-pitch col-lg-6">
+  <p>Preview</p>
+    <div class="html"></div>
+  </div>
+</div>
