@@ -7,7 +7,7 @@ class RoundsController < ApplicationController
     @cohort = Cohort.find(params[:cohort_id])
     flash[:id] = @cohort.id
     if !params[:pitch_ids].nil?
-      # new_round(@cohort, params[:pitch_ids])
+      new_round(@cohort, params[:pitch_ids])
 
       if params[:round_status] == '1'
         redirect_to rounds_path

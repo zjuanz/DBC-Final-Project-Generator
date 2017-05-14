@@ -12,5 +12,4 @@ class TeamsController < ApplicationController
     end
     binding.pry
   end
-
 end
