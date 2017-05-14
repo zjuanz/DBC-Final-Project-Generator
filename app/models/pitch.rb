@@ -9,4 +9,11 @@ class Pitch < ApplicationRecord
   belongs_to :cohort, foreign_key: :student_id
   has_many :votes
   belongs_to :team, optional: true
+
+  def round_votes(round, vote_level)
+    votes = self.votes.select do |vote|
+      vote.round_id == round && vote.vote == vote_level
+    end
+    votes.count
+  end
 end

@@ -12,7 +12,7 @@
   <ul class="list-group">
   <% @cohorts.each do |cohort| %>
     <% if cohort.active %>
-      <li class="list-group-item bg-faded"><%= link_to cohort.name, cohort_path(cohort.id) %></li>
+      <li class="list-group-item bg-faded"><%= link_to cohort.name, cohort_path(cohort.id) %>&nbsp;(<%= link_to 'Pitch List', rounds_path %>)</li>
     <% end %>
   <% end %>
   </ul>

@@ -1,0 +1,40 @@
+<% @cohorts.each do |cohort| %>
+<h1 class="bg-faded"><%= cohort.name %></h1>
+  <%= form_tag(:rounds) do %>
+  <p>Stage: <%= cohort.stage_id %></p>
+  <p>Pitch Due: <%= cohort.pitch_start %></p>
+  <p>Voting Due: <%= cohort.vote_end %></p>
+  <h3 clas='bg-faded'>All Pitches</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Pitch</th>
+        <th>1st</th>
+        <th>2nd</th>
+        <th>3rd</th>
+        <th>Move Forward</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% counter = 1 %>
+    <% cohort.current_pitches.each do |pitch| %>
+    <tr>
+      <td><%= counter %></td>
+      <td><%= link_to pitch.name, pitch_path(pitch), target: :_blank %></td>
+      <td><%= pitch.round_votes(cohort.stage_id, 1) %></td>
+      <td><%= pitch.round_votes(cohort.stage_id, 2) %></td>
+      <td><%= pitch.round_votes(cohort.stage_id, 3) %></td>
+      <td><%= check_box_tag('pitch_ids[]', pitch.id) %></td>
+    </tr>
+    <% counter += 1 %>
+    <% end %>
+    </tbody>
+  </table>
+  <%= select_tag(:round_status, options_for_select([['Next Round', 1], ['Create Teams', 2]])) %>
+  <%= hidden_field_tag(:cohort_id, cohort.id) %>
+  <%= submit_tag('Submit') %>
+  <% end %>
+<hr>
+<% end %>
+

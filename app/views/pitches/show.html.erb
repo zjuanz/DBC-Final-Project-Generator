@@ -1,13 +1,12 @@
-<%= link_to("pitches", "/students/index") %> <br>
-
 <!-- Just edit in round 0  -->
-<% if current_student.cohort.stage_id == 0 %>
-  <%= link_to("edit pitch", edit_pitch_path(@pitch.id)) %> <br>
-<% end %>
 
-Pitch name: <%= @pitch.name %>
+
+Pitch name: <%= @pitch.name %><% if current_student.cohort.stage_id == 0 %>
+    <%= link_to("edit", edit_pitch_path(@pitch.id)) %> <br>
+  <% end %>
 <div class="show-text-in hidden">
   <%= @pitch.description %> 
+  
 </div>
 
 <div class="html"> </div>
