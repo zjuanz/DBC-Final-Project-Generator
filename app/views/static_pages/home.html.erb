@@ -12,9 +12,12 @@
       <p>As an <i>Admin user</i> you will be able to create more users selecting its role as an admin or student. You have the ability to create cohorts and control the flow starting with each student submitting pitches all the way to create the final teams for the projects. </p>
       <br>
       
-      <div class="row justify-content-center">
-        <button class="btn btn-primary">Sign in</button>
-      </div>
+      <% if !current_admin && !current_student %>
+        <div class="row justify-content-center">
+          <%=link_to("Sign in", new_admin_session_path , class: "btn btn-primary") %>
+
+        </div>
+      <% end %>
       
 
     </div>   
@@ -26,10 +29,11 @@
       <br>
       <p>As a <i>Student</i> you will be able to submit pitches, and vote for your best options between your cohort. So you can be in the best team based on your preferences.</p>
        <br> <br>
-      
-      <div class="row justify-content-center">
-        <button class="btn btn-success ">Sign in</button>
-      </div>
+      <% if !current_admin && !current_student %>
+        <div class="row justify-content-center">
+          <%=link_to("Sign in", new_student_session_path , class: "btn btn-success") %>
+        </div>
+      <% end %>
     </div>
 
   </div> <!-- end of admin and student row -->
