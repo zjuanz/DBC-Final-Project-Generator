@@ -87,6 +87,8 @@ GEM
       i18n (~> 0.5)
     ffi (1.9.18)
     ffi (1.9.18-x86-mingw32)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.1)
@@ -221,7 +223,6 @@ GEM
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
-    wdm (0.1.1)
     web-console (3.5.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -245,6 +246,7 @@ DEPENDENCIES
   devise!
   erubis
   faker
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   launchy
@@ -262,7 +264,6 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
-  wdm (>= 0.1.0)
   web-console (>= 3.3.0)
 
 BUNDLED WITH

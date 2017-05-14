@@ -20,5 +20,5 @@ Rails.application.routes.draw do
 
   resources :pitches
 
-  get '/' => 'admins#index'
+  get '/' => 'static_pages#home'
 end
