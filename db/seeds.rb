@@ -19,6 +19,7 @@
 Admin.destroy_all
 Cohort.destroy_all
 Student.destroy_all
+Pitch.destroy_all
 
 a=Admin.create(
   :first_name => "Uber",
@@ -89,29 +90,34 @@ students=[]
     students<<s
   end
 end
-puts
-10.times do
+puts "\n\n Adding pitches for Uber Student"
+(2 + us.cohort.pitch_limit).times do
+  puts "--------------------------------"
+  p Pitch.all.count
+  Pitch.all.each {|x| p x.inspect}
   p = Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: us.id, round_id: 0)
   if p.errors.any?
     puts "pitch create errors for #{p.inspect}"
     p.errors.full_messages.each {|e|p e}
-    p.cohort.errors.full_messages.each {|e|p e}
   else
-    puts p.inspect
+    puts "Pitch added #{p.inspect}"
   end
 end
 
-puts
+puts "\n\n Adding pitches for non-Uber Students"
+
 20.times do
-  p Pitch.all.inspect
+  puts "--------------------------------"
+  p Pitch.all.count
+  Pitch.all.each {|x| p x.inspect}
   p = Pitch.create(name: Faker::App.name, description: Faker::Lorem.paragraph, student_id: students[rand(0..9)].id, round_id: 1)
    if p.errors.any?
-    puts "pitch create errors"
+    puts "pitch create errors #{p.inspect}"
     p.errors.full_messages.each {|e|p e}
     p.cohort.errors.full_messages.each {|e|p e}
     # p.errors.delete
   else
-    puts p.inspect
+    puts "Pitch added #{p.inspect}"
   end
 end
 
