@@ -87,6 +87,8 @@ GEM
       i18n (~> 0.5)
     ffi (1.9.18)
     ffi (1.9.18-x86-mingw32)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.1)
@@ -244,6 +246,7 @@ DEPENDENCIES
   devise!
   erubis
   faker
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   launchy

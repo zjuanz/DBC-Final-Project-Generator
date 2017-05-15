@@ -4,22 +4,29 @@
   <% if current_student.cohort.pitch_limit > current_student.pitches.count %>
     <%= link_to("New Pitch", new_pitch_path) %> <br>
   <% end %>
-<% elsif current_student.cohort.stage_id == 1 %>
-  <h2>Submitted Pitches</h2>
+<!-- votting header -->
+<% elsif current_student.cohort.stage_id >= 1 %>
+  <h2>Promoted Pitches</h2>
 <% end %>
 
-
-<% if @student_pitches %>
-  <% @student_pitches.each_with_index do |pitch, index| %>
-    <%= link_to("#{ index + 1 }. #{pitch.name}", pitch_path(pitch.id))%> 
 
 <!-- Changes just in round 0 -->
-  <% if current_student.cohort.stage_id == 0 %>
+<% if current_student.cohort.stage_id == 0 %>
+  <% if @student_pitches %>
+    <% @student_pitches.each_with_index do |pitch, index| %>
+    <%= link_to("#{ index + 1 }. #{pitch.name}", pitch_path(pitch.id))%> 
     <%=  link_to("edit", edit_pitch_path(pitch.id)) %> <%= link_to("delete", pitch_path(pitch.id) , method: "delete") %> 
+    <br>
+    <hr>
+    <% end %>
   <% end %>
-  <br>
-  <hr>
+<% elsif current_student.cohort.stage_id > 0 %>
+  <% if @current_pitches %>
+   <% @current_pitches.each_with_index do |pitch, index| %>
+      <%= link_to("#{ index + 1 }. #{pitch.name}", pitch_path(pitch.id))%><br> 
+    <% end %>
   <% end %>
 <% end %>
-<br>
+  
+
 

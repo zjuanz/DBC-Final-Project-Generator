@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511215524) do
+ActiveRecord::Schema.define(version: 20170513144036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,9 +48,6 @@ ActiveRecord::Schema.define(version: 20170511215524) do
   end
 
   create_table "pitches", force: :cascade do |t|
-    t.string  "name",        null: false
-    t.string  "description", null: false
-    t.integer "student_id",  null: false
     t.string   "name",        null: false
     t.string   "description", null: false
     t.integer  "student_id",  null: false
@@ -79,11 +76,21 @@ ActiveRecord::Schema.define(version: 20170511215524) do
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "teams", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "pitch_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "votes", force: :cascade do |t|
     t.integer  "vote"
     t.integer  "pitch_id"
     t.integer  "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "round_id"
   end
+
 end
