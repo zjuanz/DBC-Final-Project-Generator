@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_action :authenticate_student!
   def index
     @cohort = current_student.cohort
     @student = Student.find(current_student.id)

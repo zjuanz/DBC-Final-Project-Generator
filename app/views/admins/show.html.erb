@@ -1,7 +1,7 @@
-<h1>Admins</h1>
-
-<ul>
+<h1 class="bg-faded">Admins</h1>
+<hr>
+<ul class="list-group">
 <% @admins.each do |admin| %>
-<li><%= link_to admin.full_name, edit_admin_path(admin) %></li>
+<li class="list-group-item bg-faded"><%= link_to admin.full_name, edit_admin_path(admin) %></li>
 <% end %>
 </ul>
